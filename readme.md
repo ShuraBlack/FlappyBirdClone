@@ -20,7 +20,7 @@ draw images, texts, etc. to the screen and deliever the same experience.
 `INFO:` You need an installed version of JDK/JRE version 1.8 or above to run the application. The Game only supports 1080p (Full HD - 16:9) resolution, 
 and wont show up if you do not meet the requirements.
 
-`INFO:` You can download the executable jar at (Release)[https://github.com/ShuraBlack/FlappyBirdClone/releases/tag/v1.0.0]
+`INFO:` You can download the executable jar at [Release](https://github.com/ShuraBlack/FlappyBirdClone/releases/tag/v1.0.0)
 
 ## Links to the used materials
 **Font:** [dafont.com - Pixelade](https://www.dafont.com/de/search.php?q=pixelade)
