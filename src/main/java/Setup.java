@@ -95,7 +95,7 @@ public class Setup extends JPanel implements ActionListener {
 
                     timer.restart();
                     if (state == GameState.START) {
-                        distance = 300;
+                        distance = (int) DifficultyManager.difficultyMap.get("distance");
                     }
 
                 // UP while gmae is not running
@@ -220,29 +220,32 @@ public class Setup extends JPanel implements ActionListener {
         player.update();
         Boundry removeBoundry = null;
 
+        int speed = (int) DifficultyManager.difficultyMap.get("speed");
         for (Boundry boundry : boundries) {
-            boundry.moveParts((int)DifficultyManager.difficultyMap.get("speed"));
+            boundry.moveParts(speed);
             if (boundry.destoryBoundry()) {
                 removeBoundry = boundry;
             }
 
             String collision = boundry.detectCollision(player);
-            if (collision != null) {
-                if (collision.equals("HIT")) {
-                    ResourceManager.playSound("Hit");
-                    RUNNING = false;
-                    state = GameState.RESTART;
-                    timer.stop();
-                    return;
-                } else if (collision.equals("POINT")) {
-                    userInterface.inreaseScore(difficulty);
-                    userInterface.comparePoints();
-                }
+            if (collision == null) {
+                continue;
+            }
+
+            if (collision.equals("HIT")) {
+                ResourceManager.playSound("Hit");
+                RUNNING = false;
+                state = GameState.RESTART;
+                timer.stop();
+                return;
+            } else if (collision.equals("POINT")) {
+                userInterface.inreaseScore(difficulty);
+                userInterface.comparePoints();
             }
         }
 
         boundries.remove(removeBoundry);
-        distance -= (int)DifficultyManager.difficultyMap.get("speed");
+        distance -= speed;
 
         if (distance >= (int)DifficultyManager.difficultyMap.get("distance")) {
 
