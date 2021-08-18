@@ -38,14 +38,7 @@ public class ProgramFrame extends JFrame {
         this.setVisible(true);
 
         // Set the application to fullscreen mode
-        Dimension resolution = Toolkit.getDefaultToolkit().getScreenSize();
-        if (resolution.width != Constant.WIDTH || resolution.height != Constant.HEIGHT) {
-            this.removeAll();
-            this.setSize(new Dimension(430,0));
-            this.setTitle("ERROR: This Game only supports 1080p (Full HD)");
-        } else {
-            fullscreenMode();
-        }
+        fullscreenMode();
     }
 
     /**
